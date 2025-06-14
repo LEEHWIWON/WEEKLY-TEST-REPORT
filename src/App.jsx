@@ -1,30 +1,26 @@
-import React, { useState } from 'react';
 const students = [
-  { name: '이태희', password: '0551', url: 'https://example.com/pdf/이태희.pdf' },
+  { name: "권수빈", password: "9731", url: "https://firebasestorage.googleapis.com/v0/b/math-weekly-test.appspot.com/o/%5B%EB%B9%84%EB%B2%88%EC%9E%A0%EA%B8%88%5D%EC%8B%AC%ED%95%99%EA%B3%A01%2006%EC%9B%94%202%EC%A3%BC_권수빈.pdf?alt=media" },
+  { name: "김려원", password: "7506", url: "https://firebasestorage.googleapis.com/v0/b/math-weekly-test.appspot.com/o/%5B%EB%B9%84%EB%B2%88%EC%9E%A0%EA%B8%88%5D%EC%8B%AC%ED%95%99%EA%B3%A01%2006%EC%9B%94%202%EC%A3%BC_김려원.pdf?alt=media" },
+  { name: "김민성", password: "3216", url: "https://firebasestorage.googleapis.com/v0/b/math-weekly-test.appspot.com/o/%5B%EB%B9%84%EB%B2%88%EC%9E%A0%EA%B8%88%5D%EC%8B%AC%ED%95%99%EA%B3%A01%2006%EC%9B%94%202%EC%A3%BC_김민성.pdf?alt=media" },
+  { name: "김재우", password: "9001", url: "https://firebasestorage.googleapis.com/v0/b/math-weekly-test.appspot.com/o/%5B%EB%B9%84%EB%B2%88%EC%9E%A0%EA%B8%88%5D%EC%8B%AC%ED%95%99%EA%B3%A01%2006%EC%9B%94%202%EC%A3%BC_김재우.pdf?alt=media" },
+  { name: "박재권", password: "5344", url: "https://firebasestorage.googleapis.com/v0/b/math-weekly-test.appspot.com/o/%5B%EB%B9%84%EB%B2%88%EC%9E%A0%EA%B8%88%5D%EC%8B%AC%ED%95%99%EA%B3%A01%2006%EC%9B%94%202%EC%A3%BC_박재권.pdf?alt=media" },
+  { name: "반시우", password: "5125", url: "https://firebasestorage.googleapis.com/v0/b/math-weekly-test.appspot.com/o/%5B%EB%B9%84%EB%B2%88%EC%9E%A0%EA%B8%88%5D%EC%8B%AC%ED%95%99%EA%B3%A01%2006%EC%9B%94%202%EC%A3%BC_반시우.pdf?alt=media" },
+  { name: "이우영", password: "4939", url: "https://firebasestorage.googleapis.com/v0/b/math-weekly-test.appspot.com/o/%5B%EB%B9%84%EB%B2%88%EC%9E%A0%EA%B8%88%5D%EC%8B%AC%ED%95%99%EA%B3%A01%2006%EC%9B%94%202%EC%A3%BC_이우영.pdf?alt=media" },
+  { name: "윤세나", password: "7567", url: "https://firebasestorage.googleapis.com/v0/b/math-weekly-test.appspot.com/o/%5B%EB%B9%84%EB%B2%88%EC%9E%A0%EA%B8%88%5D%EC%8B%AC%ED%95%99%EA%B3%A01%2006%EC%9B%94%202%EC%A3%BC_윤세나.pdf?alt=media" },
+  { name: "황준호", password: "3747", url: "https://firebasestorage.googleapis.com/v0/b/math-weekly-test.appspot.com/o/%5B%EB%B9%84%EB%B2%88%EC%9E%A0%EA%B8%88%5D%EC%8B%AC%ED%95%99%EA%B3%A01%2006%EC%9B%94%202%EC%A3%BC_황준호.pdf?alt=media" },
+  { name: "김승기", password: "6156", url: "https://firebasestorage.googleapis.com/v0/b/math-weekly-test.appspot.com/o/%5B%EB%B9%84%EB%B2%88%EC%9E%A0%EA%B8%88%5D%EC%8B%AC%ED%95%99%EA%B3%A01%2006%EC%9B%94%202%EC%A3%BC_김승기.pdf?alt=media" },
+  { name: "김연준", password: "9085", url: "https://firebasestorage.googleapis.com/v0/b/math-weekly-test.appspot.com/o/%5B%EB%B9%84%EB%B2%88%EC%9E%A0%EA%B8%88%5D%EC%8B%AC%ED%95%99%EA%B3%A01%2006%EC%9B%94%202%EC%A3%BC_김연준.pdf?alt=media" },
+  { name: "김채원", password: "5633", url: "https://firebasestorage.googleapis.com/v0/b/math-weekly-test.appspot.com/o/%5B%EB%B9%84%EB%B2%88%EC%9E%A0%EA%B8%88%5D%EC%8B%AC%ED%95%99%EA%B3%A01%2006%EC%9B%94%202%EC%A3%BC_김채원.pdf?alt=media" },
+  { name: "김태린", password: "7024", url: "https://firebasestorage.googleapis.com/v0/b/math-weekly-test.appspot.com/o/%5B%EB%B9%84%EB%B2%88%EC%9E%A0%EA%B8%88%5D%EC%8B%AC%ED%95%99%EA%B3%A01%2006%EC%9B%94%202%EC%A3%BC_김태린.pdf?alt=media" },
+  { name: "백승준", password: "8170", url: "https://firebasestorage.googleapis.com/v0/b/math-weekly-test.appspot.com/o/%5B%EB%B9%84%EB%B2%88%EC%9E%A0%EA%B8%88%5D%EC%8B%AC%ED%95%99%EA%B3%A01%2006%EC%9B%94%202%EC%A3%BC_백승준.pdf?alt=media" },
+  { name: "양규현", password: "1320", url: "https://firebasestorage.googleapis.com/v0/b/math-weekly-test.appspot.com/o/%5B%EB%B9%84%EB%B2%88%EC%9E%A0%EA%B8%88%5D%EC%8B%AC%ED%95%99%EA%B3%A01%2006%EC%9B%94%202%EC%A3%BC_양규현.pdf?alt=media" },
+  { name: "이가은", password: "9411", url: "https://firebasestorage.googleapis.com/v0/b/math-weekly-test.appspot.com/o/%5B%EB%B9%84%EB%B2%88%EC%9E%A0%EA%B8%88%5D%EC%8B%AC%ED%95%99%EA%B3%A01%2006%EC%9B%94%202%EC%A3%BC_이가은.pdf?alt=media" },
+  { name: "이상윤", password: "2701", url: "https://firebasestorage.googleapis.com/v0/b/math-weekly-test.appspot.com/o/%5B%EB%B9%84%EB%B2%88%EC%9E%A0%EA%B8%88%5D%EC%8B%AC%ED%95%99%EA%B3%A01%2006%EC%9B%94%202%EC%A3%BC_이상윤.pdf?alt=media" },
+  { name: "이태희", password: "0551", url: "https://firebasestorage.googleapis.com/v0/b/math-weekly-test.appspot.com/o/%5B%EB%B9%84%EB%B2%88%EC%9E%A0%EA%B8%88%5D%EC%8B%AC%ED%95%99%EA%B3%A01%2006%EC%9B%94%202%EC%A3%BC_이태희.pdf?alt=media" },
+  { name: "임서이", password: "7990", url: "https://firebasestorage.googleapis.com/v0/b/math-weekly-test.appspot.com/o/%5B%EB%B9%84%EB%B2%88%EC%9E%A0%EA%B8%88%5D%EC%8B%AC%ED%95%99%EA%B3%A01%2006%EC%9B%94%202%EC%A3%BC_임서이.pdf?alt=media" },
+  { name: "장지원", password: "9610", url: "https://firebasestorage.googleapis.com/v0/b/math-weekly-test.appspot.com/o/%5B%EB%B9%84%EB%B2%88%EC%9E%A0%EA%B8%88%5D%EC%8B%AC%ED%95%99%EA%B3%A01%2006%EC%9B%94%202%EC%A3%BC_장지원.pdf?alt=media" },
+  { name: "정수빈", password: "6456", url: "https://firebasestorage.googleapis.com/v0/b/math-weekly-test.appspot.com/o/%5B%EB%B9%84%EB%B2%88%EC%9E%A0%EA%B8%88%5D%EC%8B%AC%ED%95%99%EA%B3%A01%2006%EC%9B%94%202%EC%A3%BC_정수빈.pdf?alt=media" },
+  { name: "정윤하", password: "4346", url: "https://firebasestorage.googleapis.com/v0/b/math-weekly-test.appspot.com/o/%5B%EB%B9%84%EB%B2%88%EC%9E%A0%EA%B8%88%5D%EC%8B%AC%ED%95%99%EA%B3%A01%2006%EC%9B%94%202%EC%A3%BC_정윤하.pdf?alt=media" },
+  { name: "정채민", password: "7707", url: "https://firebasestorage.googleapis.com/v0/b/math-weekly-test.appspot.com/o/%5B%EB%B9%84%EB%B2%88%EC%9E%A0%EA%B8%88%5D%EC%8B%AC%ED%95%99%EA%B3%A01%2006%EC%9B%94%202%EC%A3%BC_정채민.pdf?alt=media" },
+  { name: "홍주원", password: "4429", url: "https://firebasestorage.googleapis.com/v0/b/math-weekly-test.appspot.com/o/%5B%EB%B9%84%EB%B2%88%EC%9E%A0%EA%B8%88%5D%EC%8B%AC%ED%95%99%EA%B3%A01%2006%EC%9B%94%202%EC%A3%BC_홍주원.pdf?alt=media" }
 ];
-export default function App() {
-  const [selected, setSelected] = useState(null);
-  const [input, setInput] = useState('');
-  const correct = selected && input === selected.password;
-  return (
-    <div style={{ padding: 24 }}>
-      {selected ? (
-        <div>
-          <h2>{selected.name} 성적표</h2>
-          <input value={input} onChange={e => setInput(e.target.value)} placeholder='비밀번호 입력' />
-          <button onClick={() => correct ? window.open(selected.url, '_blank') : alert('비밀번호 오류')}>
-            열람하기
-          </button>
-          <button onClick={() => setSelected(null)}>뒤로가기</button>
-        </div>
-      ) : (
-        students.map((s, i) => (
-          <div key={i} style={{ marginBottom: 12 }}>
-            {s.name}
-            <button onClick={() => setSelected(s)} style={{ marginLeft: 10 }}>열람</button>
-          </div>
-        ))
-      )}
-    </div>
-  );
-}
